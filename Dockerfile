@@ -14,7 +14,7 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction
 FROM node:16 AS assets_stage
 WORKDIR /app
 
-COPY package.json package-lock.json webpack.mix.js ./
+COPY package.json webpack.mix.js ./
 RUN npm install
 
 COPY resources ./resources
@@ -57,3 +57,4 @@ EXPOSE 80
 
 # Comando por defecto
 CMD ["apache2-foreground"]
+
