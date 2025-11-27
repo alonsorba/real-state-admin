@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copiamos solo lo mínimo para aprovechar caché
 COPY composer.json composer.lock ./
-RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist --ignore-platform-reqs
+RUN composer install --no-dev --no-scripts --no-interaction --prefer-dist --ignore-platform-req=php
 
 
 # Ahora copiamos todo el código y terminamos la instalación
@@ -58,5 +58,6 @@ EXPOSE 80
 
 # Comando por defecto
 CMD ["apache2-foreground"]
+
 
 
